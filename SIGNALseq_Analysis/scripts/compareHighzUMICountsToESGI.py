@@ -32,7 +32,7 @@ def reverse_complement(seq):
 print("creating BAM subset")
 bamfile  = pysam.AlignmentFile(bam_path,  "rb")
 subset = []
-k = 10000
+k = 1000000
 total_reads = bamfile.count()  # fast C‐level count
 #compute sampling probability
 p = k / total_reads
