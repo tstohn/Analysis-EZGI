@@ -66,21 +66,32 @@ for read in subset:
         escaped_read_name = re.escape(read_name)
         pattern = fr".*{escaped_read_name}$"
         matching_rows = ESGI_result[ESGI_result['READNAME'].str.match(pattern, na=False)]
-        assert len(matching_rows) == 1, f"Expected one element, got {len(matching_rows)}"
-        rowESGI = matching_rows.iloc[0]
+        
+        if matching_rows.shape[0] == 1:
+            rowESGI = matching_rows.iloc[0]
+            barcode_seq = reverse_complement(rowESGI['BC2.txt.1']) + \
+                reverse_complement(rowESGI['BC2.txt']) + \
+                conversion_dict.get(reverse_complement(rowESGI['BC1.txt']), reverse_complement(rowESGI['BC1.txt']))      
+            resultTmp = {
+                "read_name": read_name,
+                "BC_zUMI": bc,
+                "BX": bx,
+                "BC_ESGI": barcode_seq,
+                "Hamming_to_ZUMI": hamming_distance(bc, bx),
+                "Hamming_to_ESGI": hamming_distance(barcode_seq, bx),
+            }
+        elif matching_rows.shape[0] == 0:
+            resultTmp = {
+                "read_name": read_name,
+                "BC_zUMI": bc,
+                "BX": bx,
+                "BC_ESGI": "NOT_FOUND",
+                "Hamming_to_ZUMI": hamming_distance(bc, bx),
+                "Hamming_to_ESGI": pd.NA,
+            }
+        else:
+            raise ValueError(f"Too many matches: {matching_rows.shape[0]}")
 
-        barcode_seq = reverse_complement(rowESGI['BC2.txt.1']) + \
-                        reverse_complement(rowESGI['BC2.txt']) + \
-                        conversion_dict.get(reverse_complement(rowESGI['BC1.txt']), reverse_complement(rowESGI['BC1.txt']))
-                        
-        resultTmp = {
-            "read_name": read_name,
-            "BC_zUMI": bc,
-            "BX": bx,
-            "BC_ESGI": barcode_seq,
-            "Hamming_to_ESGI": hamming_distance(bc, bx),
-            "Hamming_to_zUMI": hamming_distance(barcode_seq, bx),
-        }
         results.append(resultTmp)
 
 # === Save results ===

@@ -5,7 +5,7 @@
 ###########################################
 
 #define a project name that will be used to name output files
-project: zUMI_SIGNALseq_June25
+project: zUMI_SIGNALseq
 
 #Sequencing File Inputs:
 #For each input file, make one list object & define path and barcode ranges
@@ -35,7 +35,7 @@ reference:
   additional_STAR_params: --limitOutSJcollapsed 2000000 #Optional parameter. you may add custom mapping parameters to STAR here
 
 #output directory
-out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/zUMI_june25/ #/SIGNALseq_Analysis # specify the full path to the output directory
+out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/zUMI/ #/SIGNALseq_Analysis # specify the full path to the output directory
 
 ###########################################
 #below, you may optionally change default parameters
