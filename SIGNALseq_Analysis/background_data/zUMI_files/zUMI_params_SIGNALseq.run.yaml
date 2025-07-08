@@ -95,3 +95,4 @@ pigz_exec: pigz #pigz executable
 
 #below, fqfilter will add a read_layout flag defining SE or PE
 zUMIs_directory: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/zUMIs
+read_layout: SE
