@@ -48,3 +48,12 @@ fastq-dump --split-files --gzip sciRNAseq/SRR16635352.sra
 
 # download xDBiT (spatial single-cell data with x&y coordinate barcodes)
 # SRR20073555
+
+#download mouse reference genome for xDBiT analysis
+# Download GENCODE FASTA and GTF
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M25/GRCm38.primary_assembly.genome.fa.gz -P data/GRCm38
+wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M25/gencode.vM25.annotation.gtf.gz -P data/GRCm38
+
+# Unzip them
+gunzip data/GRCm38/GRCm38.primary_assembly.genome.fa.gz
+gunzip data/GRCm38/gencode.vM25.annotation.gtf.gz

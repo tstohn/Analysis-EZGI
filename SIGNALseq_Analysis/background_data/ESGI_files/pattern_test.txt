@@ -1,0 +1,1 @@
+[DNA][-][/DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/background_data/formatForEzgi_files/BC1.txt][CCACAGTCTCAAGCACGTGGAT][/DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/background_data/formatForEzgi_files/BC2.txt][AGTCGTACGCCGATGCGAAACATCGGCCAC][/DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/background_data/formatForEzgi_files/BC2.txt][10X]

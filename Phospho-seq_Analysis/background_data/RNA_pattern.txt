@@ -1,0 +1,1 @@
+RNA:[Phospho-seq_Analysis/background_data/esgi_gex_737K-arc-v1.txt][12X][-][DNA]

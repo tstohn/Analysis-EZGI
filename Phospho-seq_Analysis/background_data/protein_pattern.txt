@@ -1,0 +1,1 @@
+ADT:[10X][/DATA/t.stohn/analyses_ezgi/Phospho-seq_Analysis/background_data/ESGI_AB_BARCODES.txt][9X][-][Phospho-seq_Analysis/background_data/10X_whitelist.txt]

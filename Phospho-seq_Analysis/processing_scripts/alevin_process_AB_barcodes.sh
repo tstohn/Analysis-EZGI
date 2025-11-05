@@ -1,0 +1,2 @@
+awk '{print $1"\t"$1;}' Phospho-seq_Analysis/background_data/AB_NAME_TO_BARCODE.tsv > Phospho-seq_Analysis/background_data/AB_NAMES_ALEVIN.tsv
+awk -F "\t" '{print $1"\t"$5}' Phospho-seq_Analysis/background_data/AB_NAME_TO_BARCODE.tsv > Phospho-seq_Analysis/background_data/ALEVIN_AB_NAME_TO_BARCODE.tsv

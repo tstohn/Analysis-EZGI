@@ -1,0 +1,22 @@
+{
+    "index_version": 4,
+    "reference_gfa": [
+        "Phospho-seq_Analysis/background_data/AB_BARCODES_INDEX"
+    ],
+    "sampling_type": "dense",
+    "k": 7,
+    "num_kmers": 270,
+    "num_contigs": 46,
+    "seq_length": 546,
+    "have_ref_seq": true,
+    "have_edge_vec": false,
+    "SeqHash": "8641dd93fa4319b917d19df3d6db54e748324ae5401e1f2a5073b8b97f90cafc",
+    "NameHash": "7d5950537d9f40ed7e88018cb5f8dcc201fbc6e9fe673ad844753b8686478a42",
+    "SeqHash512": "5bcbe2b437fb512e8a27a08a6c577db1654fffe69fc5cc254969cd3f4f719daae909b1776f7cb21d6bc3b975574a779cab287da8da73e83362b0fe79ff4a3dee",
+    "NameHash512": "7105261b37e844b9762629899486e116a220af87b82445cd2b950b9d8b179ae10916f994b9b36b3b45b3fc1b8ff8413231c14833deeeb4c7b0d1d5d65f432f21",
+    "DecoySeqHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "DecoyNameHash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "num_decoys": 0,
+    "first_decoy_index": 18446744073709551615,
+    "keep_duplicates": false
+}
