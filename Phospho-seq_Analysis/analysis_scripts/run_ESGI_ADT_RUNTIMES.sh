@@ -41,5 +41,5 @@ for ((i=1; i<=REPEATS; i++)); do
                     -o ./Phospho-seq_Analysis/output/ESGI_ADT_RUNTIME/PHOSPHO_ADT_Counts_0MM.tsv \
                     -t 10 -d /DATA/t.stohn/analyses_ezgi/Phospho-seq_Analysis/background_data \
                     -a Phospho-seq_Analysis/background_data/ESGI_AB_NAMES.txt \
-                    -c 3 -x 1 -u 0,2 -m 0 -s 1 2>> $LOGFILE_AB
+                    -c 4 -x 2 -u 1,3 -m 0 -s 1 2>> $LOGFILE_AB
 done
