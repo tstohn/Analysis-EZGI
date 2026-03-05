@@ -57,3 +57,25 @@ wget https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_mouse/release_M25/genco
 # Unzip them
 gunzip data/GRCm38/GRCm38.primary_assembly.genome.fa.gz
 gunzip data/GRCm38/gencode.vM25.annotation.gtf.gz
+
+#PHOSPHOseq
+#we downloaded phospho-multi data for ADT and RNA
+#RNA modality:
+#[SRR31955816](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR31955816)
+# prefetch SRR31955816
+#fasterq-dump --split-files SRR31955816
+#ADT modality:
+#[SRR31955815](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR31955815)
+# prefetch SRR31955815
+#fasterq-dump --split-files SRR31955815
+
+# build cellranger reference
+#./cellranger-9.0.1/bin/cellranger mkref \
+#  --genome=GRCh38 \
+#  --fasta=data/GRCh38/GRCh38.primary_assembly.genome.fa \
+#  --genes=data/GRCh38/gencode.v43.annotation.gtf
+
+
+#split-pool
+prefetch SRR6750041
+fasterq-dump --split-files SRR6750041

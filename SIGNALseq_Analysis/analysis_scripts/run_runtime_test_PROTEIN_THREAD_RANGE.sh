@@ -1,10 +1,10 @@
-THREADS=(10 30 50 70)
+THREADS=(1 5 10 20)
 REPEATS=5
 
 #empty files
 for THREAD in "${THREADS[@]}"; do
-    LOG_ESGI_PROT="./SIGNALseq_Analysis/output/RUNTIME_TEST/LOG_FILES/ESGI_PROT_${THREAD}_LOG.txt"
-    LOG_KITE="./SIGNALseq_Analysis/output/RUNTIME_TEST/LOG_FILES/KITE_${THREAD}_LOG.txt"
+    LOG_ESGI_PROT="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/LOG_FILES/ESGI_PROT_${THREAD}_LOG.txt"
+    LOG_KITE="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/LOG_FILES/KITE_${THREAD}_LOG.txt"
     rm -f $LOG_ESGI_PROT
     rm -f $LOG_KITE
 done
@@ -16,14 +16,14 @@ for ((i=1; i<=REPEATS; i++)); do
   for THREAD in "${THREADS[@]}"; do
     echo "THREADS: ${THREAD}"
 
-    LOG_ESGI_PROT="./SIGNALseq_Analysis/output/RUNTIME_TEST/LOG_FILES/ESGI_PROT_${THREAD}_LOG.txt"
-    LOG_KITE="./SIGNALseq_Analysis/output/RUNTIME_TEST/LOG_FILES/KITE_${THREAD}_LOG.txt"
+    LOG_ESGI_PROT="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/LOG_FILES/ESGI_PROT_${THREAD}_LOG.txt"
+    LOG_KITE="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/LOG_FILES/KITE_${THREAD}_LOG.txt"
 
     echo "RUN ESGI"
     #RUN ESGI PROTEIN
     echo "RUN ESGI with ${THREAD} threads on repeat ${i}" >> $LOG_ESGI_PROT
     #RUN WITH 1MM in SC-BARCODE and 1MM in AB-BARCODE: results have prefix A_
-    RESULTS_DIR="./SIGNALseq_Analysis/output/RUNTIME_TEST/ESGI_PROT"
+    RESULTS_DIR="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/ESGI_PROT"
     /usr/bin/time -v /DATA/t.stohn/SCDemultiplexing/bin/demultiplex \
                     -i /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056728_1.fastq \
                     -r /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056728_2.fastq \
@@ -37,13 +37,13 @@ for ((i=1; i<=REPEATS; i++)); do
                     -o ${RESULTS_DIR}/RUNTIME_PROTEIN_Counts.tsv \
                     -t $THREAD -d /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/background_data/ESGI_files \
                     -a SIGNALseq_Analysis/background_data/ESGI_files/antibody_names_as_in_KITE.txt \
-                    -c 1,3,5 -x 0 -u 6 -m 0 -s 1 > /dev/null 2>> $LOG_ESGI_PROT
+                    -c 2,4,6 -x 1 -u 7 -m 0 -s 1 > /dev/null 2>> $LOG_ESGI_PROT
     rm -r ${RESULTS_DIR}/*
 
     echo "RUN KITE"
     #RUN KITE
     echo "RUN KITE with ${THREAD} threads on repeat ${i}" >> $LOG_KITE
-    RESULTS_DIR="./SIGNALseq_Analysis/output/RUNTIME_TEST/KITE"
+    RESULTS_DIR="./SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/KITE"
     /usr/bin/time -v kb ref -i $RESULTS_DIR/mismatch.idx \
         -f1 $RESULTS_DIR/mismatch.fa \
         -g $RESULTS_DIR/t2g.txt \
@@ -60,7 +60,7 @@ for ((i=1; i<=REPEATS; i++)); do
               -t 70 \
               -m 4G\
               --overwrite \
-              --tmp SIGNALseq_Analysis/output/RUNTIME_TEST/tmp \
+              --tmp SIGNALseq_Analysis/output/RUNTIME_TEST_THREADS/tmp \
               /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056728_1.fastq \
               /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056728_2.fastq > /dev/null 2>> $LOG_KITE
     rm -r $RESULTS_DIR/*

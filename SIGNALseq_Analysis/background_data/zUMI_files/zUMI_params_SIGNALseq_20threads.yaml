@@ -26,7 +26,7 @@ sequence_files:
 
 #reference genome setup
 reference:
-  STAR_index: /DATA/t.stohn/analyses_ezgi/data/GRCh38/GRCh38_STAR_index_zUMIenv # path to STAR genome index
+  STAR_index: /DATA/t.stohn/analyses_ezgi/data/GRCh38/GRCh38_STAR_index # path to STAR genome index
   GTF_file: /DATA/t.stohn/analyses_ezgi/data/GRCh38/gencode.v43.annotation.gtf # EDIT: path to gene annotation file in GTF format (from GENCODE)
   exon_extension: no #extend exons by a certain width?
   extension_length: 0 #number of bp to extend exons by

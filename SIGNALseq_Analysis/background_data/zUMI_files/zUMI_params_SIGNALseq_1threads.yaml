@@ -42,7 +42,7 @@ out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/RUNTIME_TEST/zUMI
 ###########################################
 
 #number of processors to use
-num_threads: 70
+num_threads: 1
 mem_limit: 120 #Memory limit in Gigabytes, null meaning unlimited RAM usage.
 
 #barcode & UMI filtering options
@@ -88,11 +88,9 @@ make_stats: no
 which_Stage: Filtering
 
 #define dependencies program paths
+samtools_exec: samtools #samtools executable
+Rscript_exec: Rscript #Rscript executable
+STAR_exec: /home/t.stohn/.local/share/mamba/envs/analysis_esgi/bin/STAR #STAR executable
+pigz_exec: pigz #pigz executable
 
 #below, fqfilter will add a read_layout flag defining SE or PE
-samtools_exec: samtools
-pigz_exec: pigz
-STAR_exec: STAR
-Rscript_exec: Rscript
-zUMIs_directory: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/zUMIs
-read_layout: SE

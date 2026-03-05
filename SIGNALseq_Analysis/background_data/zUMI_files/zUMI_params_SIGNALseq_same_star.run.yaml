@@ -5,7 +5,7 @@
 ###########################################
 
 #define a project name that will be used to name output files
-project: zUMI_SIGNALseq
+project: zUMI_SIGNALseq_same_star_TEST
 
 #Sequencing File Inputs:
 #For each input file, make one list object & define path and barcode ranges
@@ -14,19 +14,21 @@ project: zUMI_SIGNALseq
 #you can specify between 1 and 4 input files
 sequence_files:
   file1:
-    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_1Processed.fastq.gz #EDIT: replaced this path with downloaded fastq files
+     # SRR28056729_1Processed.fastq.gz
+    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_1subset1M.fastq.gz #/DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_1Processed.fastq.gz
     base_definition:
       - cDNA(1-74)
       
   file2:
-    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_2Processed.fastq.gz #EDIT: replaced this path with downloaded fastq files
+  # SRR28056729_2Processed.fastq.gz
+    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_2subset1M.fastq.gz #/DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_2Processed.fastq.gz
     base_definition:
       - UMI(1-10)
       - BC(11-18,49-56,79-86)
 
 #reference genome setup
 reference:
-  STAR_index: /DATA/t.stohn/analyses_ezgi/data/GRCh38/GRCh38_STAR_index_zUMIenv # path to STAR genome index
+  STAR_index: /DATA/t.stohn/analyses_ezgi/data/GRCh38/GRCh38_STAR_index # path to STAR genome index
   GTF_file: /DATA/t.stohn/analyses_ezgi/data/GRCh38/gencode.v43.annotation.gtf # EDIT: path to gene annotation file in GTF format (from GENCODE)
   exon_extension: no #extend exons by a certain width?
   extension_length: 0 #number of bp to extend exons by
@@ -35,14 +37,14 @@ reference:
   additional_STAR_params: --limitOutSJcollapsed 2000000 #Optional parameter. you may add custom mapping parameters to STAR here
 
 #output directory
-out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/RUNTIME_TEST/zUMI/ #/SIGNALseq_Analysis # specify the full path to the output directory
+out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/zUMI_same_star/ #/SIGNALseq_Analysis # specify the full path to the output directory
 
 ###########################################
 #below, you may optionally change default parameters
 ###########################################
 
 #number of processors to use
-num_threads: 30
+num_threads: 70
 mem_limit: 120 #Memory limit in Gigabytes, null meaning unlimited RAM usage.
 
 #barcode & UMI filtering options
@@ -88,9 +90,11 @@ make_stats: no
 which_Stage: Filtering
 
 #define dependencies program paths
-samtools_exec: samtools #samtools executable
-Rscript_exec: Rscript #Rscript executable
-STAR_exec: /home/t.stohn/.local/share/mamba/envs/analysis_esgi/bin/STAR #STAR executable
-pigz_exec: pigz #pigz executable
 
 #below, fqfilter will add a read_layout flag defining SE or PE
+samtools_exec: samtools
+pigz_exec: pigz
+STAR_exec: STAR
+Rscript_exec: Rscript
+zUMIs_directory: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/zUMIs
+read_layout: SE

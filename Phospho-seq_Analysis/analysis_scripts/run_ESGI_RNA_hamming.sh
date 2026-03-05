@@ -5,8 +5,8 @@ rm -f $LOGFILE
 #DEMULTIPLEX
 echo "RUN DEMULTIPLEXING"
 #/usr/bin/time -v /DATA/t.stohn/SCDemultiplexing/bin/demultiplex \
-#              -i data/Phospho-seq/raw/SRR31955816_S1_L001_R1_001.fastq.gz \
-#              -r data/Phospho-seq/raw/SRR31955816_S1_L001_R2_001.fastq.gz \
+#              -i data/Phospho-seq/raw/RNA/SRR31955816_S1_L001_R1_001.fastq.gz \
+#              -r data/Phospho-seq/raw/RNA/SRR31955816_S1_L001_R2_001.fastq.gz \
 #              -o /DATA/t.stohn/analyses_ezgi/Phospho-seq_Analysis/output/ESGI_RNA_HAMMING \
 #              -p Phospho-seq_Analysis/background_data/RNA_pattern.txt \
 #              -m Phospho-seq_Analysis/background_data/RNA_mismatches.txt \

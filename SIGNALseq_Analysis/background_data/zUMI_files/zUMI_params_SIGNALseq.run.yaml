@@ -14,12 +14,12 @@ project: zUMI_SIGNALseq
 #you can specify between 1 and 4 input files
 sequence_files:
   file1:
-    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_1Processed.fastq.gz #EDIT: replaced this path with downloaded fastq files
+    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_1subset1M.fastq.gz #EDIT: replaced this path with downloaded fastq files
     base_definition:
       - cDNA(1-74)
       
   file2:
-    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_2Processed.fastq.gz #EDIT: replaced this path with downloaded fastq files
+    name: /DATA/t.stohn/analyses_ezgi/data/SIGNALseq/raw/SRR28056729_2subset1M.fastq.gz #EDIT: replaced this path with downloaded fastq files
     base_definition:
       - UMI(1-10)
       - BC(11-18,49-56,79-86)
@@ -35,7 +35,7 @@ reference:
   additional_STAR_params: --limitOutSJcollapsed 2000000 #Optional parameter. you may add custom mapping parameters to STAR here
 
 #output directory
-out_dir: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/output/zUMI/ #/SIGNALseq_Analysis # specify the full path to the output directory
+out_dir: /DATA/t.stohn/analyses_ezgi/TEST #SIGNALseq_Analysis/output/zUMI/ #/SIGNALseq_Analysis # specify the full path to the output directory
 
 ###########################################
 #below, you may optionally change default parameters
@@ -88,11 +88,11 @@ make_stats: no
 which_Stage: Filtering
 
 #define dependencies program paths
-samtools_exec: samtools #samtools executable
-Rscript_exec: Rscript #Rscript executable
-STAR_exec: /home/t.stohn/.local/share/mamba/envs/analysis_esgi/bin/STAR #STAR executable
-pigz_exec: pigz #pigz executable
 
 #below, fqfilter will add a read_layout flag defining SE or PE
+samtools_exec: samtools
+pigz_exec: pigz
+STAR_exec: STAR
+Rscript_exec: Rscript
 zUMIs_directory: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/zUMIs
 read_layout: SE

@@ -1,5 +1,0 @@
-zUMIs_directory: /DATA/t.stohn/analyses_ezgi/SIGNALseq_Analysis/zUMIs
-samtools_exec: samtools
-pigz_exec: pigz
-STAR_exec: STAR
-Rscript_exec: Rscript
